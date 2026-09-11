@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@300;400;500;600;700&display=swap");
+
+:root {
+    --bg: #fbf2f3;
+    --surface: #fdf6f7;
+    --card: #f3e0e3;
+    --field: #ece3e5;
+    --field-strong: #e3d3d6;
+    --ink: #1a1416;
+    --ink-soft: #4a3d40;
+    --muted: #8a7a7d;
+    --accent: #b94860;
+    --accent-strong: #8a2f44;
+    --line: #e7d2d6;
+}
+
+body {
+    margin: 0;
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+    font-family: "Fraunces", Georgia, serif;
+    font-feature-settings: "ss01";
+    letter-spacing: -0.01em;
+}
+
+@layer base {
+    :root {
+        --background: 6 40% 97%;
+        --foreground: 340 14% 9%;
+        --card: 0 0% 100%;
+        --card-foreground: 340 14% 9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 340 14% 9%;
+        --primary: 343 47% 38%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 350 25% 92%;
+        --secondary-foreground: 340 14% 9%;
+        --muted: 350 25% 92%;
+        --muted-foreground: 340 8% 45%;
+        --accent: 350 25% 88%;
+        --accent-foreground: 340 14% 9%;
+        --destructive: 0 72% 50%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 350 25% 88%;
+        --input: 350 25% 88%;
+        --ring: 343 47% 38%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+}
+
+/* Custom field style matching screenshots */
+.field {
+    background: var(--field);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 12px 14px;
+    width: 100%;
+    color: var(--ink);
+    font-size: 14px;
+    transition: border-color 160ms ease, background 160ms ease;
+}
+.field:hover {
+    background: var(--field-strong);
+}
+.field:focus,
+.field:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    background: #fff;
+}
+.field:disabled {
+    color: var(--ink-soft);
+    cursor: not-allowed;
+    opacity: 0.85;
+}
+
+.btn-primary {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 999px;
+    padding: 12px 26px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 140ms ease, background 140ms ease;
+}
+.btn-primary:hover {
+    background: var(--accent-strong);
+}
+.btn-primary:active {
+    transform: translateY(1px);
+}
+.btn-primary:disabled {
+    background: var(--field-strong);
+    color: var(--muted);
+    cursor: not-allowed;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 140ms ease;
+}
+.btn-ghost:hover {
+    background: var(--field);
+}
+
+.nav-pill {
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: all 160ms ease;
+}
+.nav-pill:hover {
+    color: var(--ink);
+    background: var(--field);
+}
+.nav-pill[data-active="true"] {
+    background: #fff;
+    color: var(--ink);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.dropzone {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 64px 24px;
+    text-align: center;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 160ms ease, transform 160ms ease;
+    border: 1.5px dashed transparent;
+}
+.dropzone:hover {
+    background: #ecd6da;
+    border-color: var(--accent);
+}
+.dropzone[data-dragging="true"] {
+    background: #e8c9ce;
+    border-color: var(--accent-strong);
+}
